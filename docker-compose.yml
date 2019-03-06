@@ -1,0 +1,16 @@
+version: '3.5'
+
+services:
+  frontend:
+    build: 
+        context: ./
+        dockerfile: Dockerfile
+    volumes:
+      - '.:/frontend'
+      - '.:/node_modules'
+    ports:
+      - 8080:8080
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    entrypoint: ["bash","./frontend_entrypoint.sh"]
