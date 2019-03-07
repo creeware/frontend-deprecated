@@ -3,6 +3,8 @@
     <h1>{{ msg }}</h1>
     <h2>The following was loaded over Graphql:</h2>
     <h1>User: {{ user.name }}</h1>
+    <a-button type="primary">Primary</a-button>
+    <h2> lol, hot reload on windows finally works in an optimized way... (Damn Windows...) </h2>
   </div>
 </template>
 

@@ -10,20 +10,7 @@ RUN apk add --update inotify-tools
 # Add node to the image
 RUN apk add --update nodejs yarn
 
+RUN mkdir -p app
+WORKDIR /app
 
-
-# Configure required environment
-ENV WORKSPACE /frontend
-
-
-
-# Create and set home directory
-RUN mkdir $WORKSPACE
-WORKDIR $WORKSPACE
-
-ENV PATH /frontend/node_modules/.bin:$PATH
-
-
-COPY package.json /frontend/package.json
-
-ADD . /frontend/
+COPY . ./app
