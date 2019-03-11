@@ -1,39 +1,39 @@
 <template>
   <div id="app">
-    <h1>{{ msg }}</h1>
-    <h2>The following was loaded over Graphql:</h2>
-    <h1>User: {{ user.name }}</h1>
-    <a-button type="primary">Primary</a-button>
-    <h2> lol, hot reload on windows finally works in an optimized way... (Damn Windows...) </h2>
+    
+    <router-view/>
   </div>
 </template>
 
 <script>
-import gql from 'graphql-tag'
+import gql from "graphql-tag";
 export default {
-  name: 'app',
-  data () {
+  name: "app",
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js & Phoenix & GraphQL App',
-      user: "" // Apollo will assign the result of its "user" query here!
-    }
+      msg: "Welcome to Your Vue.js & Phoenix & GraphQL App",
+      getPost: undefined // Apollo will assign the result of its "user" query here!
+    };
   },
- apollo: {
+  apollo: {
     // Apollo specific options
-    // Here, we use gql to describe the data we want: a user with ID 1, and 
+    // Here, we use gql to describe the data we want: a user with ID 1, and
     // Apollo will assign the result of that query to the 'user' key in data.
-    user: gql`{
-      user(id: "1"){ 
-        name
+    getPost: { query: gql`
+      {
+        getPost(id:2) {
+          title
+        }
       }
-    }`,
+    `
+    }
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

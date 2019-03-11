@@ -6,6 +6,8 @@ import Antd from "ant-design-vue";
 import "ant-design-vue/dist/antd.css";
 import VueApollo from "vue-apollo";
 import App from "./App.vue";
+import router from "@/router"
+
 
 Vue.config.productionTip = false;
 
@@ -32,6 +34,7 @@ const apolloProvider = new VueApollo({
 
 new Vue({
   el: "#app",
+  router: router,
   apolloProvider: apolloProvider,
   render: h => h(App)
 }).$mount("#app");
